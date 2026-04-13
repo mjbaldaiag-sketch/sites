@@ -107,7 +107,7 @@ header {
 }
 
 .brand-logo {
-  height: 81px;
+  height: calc(81px * 1.2);
   width: auto;
   display: block;
   object-fit: contain;
@@ -281,8 +281,9 @@ h1 {
 }
 
 .panel-logo {
-  height: 73px;
+  height: calc(73px * 1.2);
   width: auto;
+  object-fit: contain;
   margin-bottom: 0.55rem;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
@@ -367,11 +368,11 @@ main section {
 }
 
 .service-topic svg {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   margin-top: 0.12rem;
-  flex: 0 0 22px;
-  fill: var(--green);
+  flex: 0 0 30px;
+  color: #16a34a;
 }
 
 .service-topic h3 {
@@ -551,8 +552,9 @@ footer {
 }
 
 .footer-logo {
-  height: 81px;
+  height: calc(81px * 1.2);
   width: auto;
+  object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
@@ -572,31 +574,30 @@ footer {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 80;
+  z-index: 999;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  width: 62px;
-  height: 62px;
+  width: 65px;
+  height: 65px;
   padding: 0;
   border-radius: 50%;
   color: #fff;
-  background: linear-gradient(135deg, #1fa855, #128c46);
-  box-shadow: 0 16px 34px rgba(18, 140, 70, 0.26);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: linear-gradient(145deg, #25d366, #128c7e);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
   animation: whatsapp-float-soft 2.8s ease-in-out infinite;
 }
 
 .whatsapp-float:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 20px 38px rgba(18, 140, 70, 0.34);
+  transform: scale(1.1);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
 }
 
 .whatsapp-float svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+  width: 29px;
+  height: 29px;
 }
 
 .whatsapp-float span {
@@ -654,13 +655,11 @@ footer {
 @keyframes whatsapp-float-soft {
   0%,
   100% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 16px 34px rgba(18, 140, 70, 0.26);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
 
   50% {
-    transform: translateY(-1px) scale(1.04);
-    box-shadow: 0 20px 40px rgba(18, 140, 70, 0.34);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -686,8 +685,8 @@ footer {
   }
 
   .whatsapp-float {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -697,7 +696,7 @@ footer {
   }
 
   .brand-logo {
-    height: 64px;
+    height: calc(64px * 1.2);
   }
 
   .navbar .btn {
