@@ -699,6 +699,22 @@ footer {
   white-space: nowrap;
 }
 
+.footer-legal {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.footer-legal a {
+  color: #4f5d72;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79, 93, 114, 0.35);
+}
+
+.footer-legal a:hover {
+  color: #1f2d42;
+  border-bottom-color: rgba(31, 45, 66, 0.5);
+}
+
 .footer-logo {
   height: calc(81px * 1.38);
   width: auto;
