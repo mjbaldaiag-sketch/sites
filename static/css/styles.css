@@ -309,11 +309,20 @@ h1.hero-hover-highlight:hover {
   list-style: none;
   display: flex;
   align-items: flex-start;
+  justify-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
   gap: 0.6rem;
-  padding: 0.72rem 0.82rem;
-  border-radius: 14px;
+  padding: 0.72rem 1.1rem 0.72rem 0.82rem;
+  border-radius: 999px;
   border: 1px solid rgba(11, 47, 115, 0.16);
-  background: linear-gradient(110deg, #ffffff 0%, rgba(11, 47, 115, 0.08) 100%);
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    rgba(11, 47, 115, 0.08) 62%,
+    rgba(11, 47, 115, 0.03) 84%,
+    rgba(11, 47, 115, 0) 100%
+  );
   box-shadow: 0 8px 18px rgba(11, 47, 115, 0.07);
   line-height: 1.6;
 }
