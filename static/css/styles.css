@@ -33,6 +33,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='60 110 80 110'%3E%3Cpath fill='rgba(1,48,20,0.016)' d='M78.19,192.76c-3.47-6.54-6.24-13.33-8.3-20.37-.98-5.05.12-19.82,6.99-19.04-1.67-7.47,3-7.61,9.26-6.45l10.77,2.43c8.69-2.65,13.25-.77,13.69,5.65h.75c2.87,7.27,9.07,13.91,10.1,21.86,3.56,27.39-27.4,35.34-43.25,15.91Z'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='60 110 80 110'%3E%3Cpath fill='rgba(2,42,104,0.012)' d='M78.19,192.76c-3.47-6.54-6.24-13.33-8.3-20.37-.98-5.05.12-19.82,6.99-19.04-1.67-7.47,3-7.61,9.26-6.45l10.77,2.43c8.69-2.65,13.25-.77,13.69,5.65h.75c2.87,7.27,9.07,13.91,10.1,21.86,3.56,27.39-27.4,35.34-43.25,15.91Z'/%3E%3C/svg%3E"),
     linear-gradient(115deg, rgba(233, 243, 239, 0.5), transparent 45%),
     linear-gradient(250deg, rgba(237, 242, 253, 0.55), transparent 40%),
     repeating-linear-gradient(
@@ -43,6 +45,9 @@ body {
       transparent 26px
     ),
     #f7f9fc;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, repeat, no-repeat;
+  background-size: 28px 36px, 28px 36px, auto, auto, auto, auto;
+  background-position: 0 0, 14px 18px, 0 0, 0 0, 0 0, 0 0;
 }
 
 img {
@@ -101,42 +106,13 @@ header {
   transform: translateY(-1px);
 }
 
-.brand-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 13px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Sora", sans-serif;
-  font-size: 1.05rem;
-  letter-spacing: -0.03em;
-  background: linear-gradient(145deg, #ffffff, #f2f6fb);
-  border: 1px solid #dce6f3;
-  box-shadow: 0 10px 24px rgba(13, 22, 40, 0.08);
-}
-
-.pp-green {
-  color: var(--green);
-}
-
-.pp-blue {
-  color: var(--blue);
-}
-
-.brand-text strong {
+.brand-logo {
+  height: 81px;
+  width: auto;
   display: block;
-  font-family: "Sora", sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #1a212b;
-  line-height: 1.2;
-}
-
-.brand-text span {
-  font-size: 0.75rem;
-  color: var(--text-soft);
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .menu {
@@ -148,14 +124,37 @@ header {
 }
 
 .menu a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0;
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.15rem;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 
 .menu a:hover {
   color: var(--blue);
-  transform: translateY(-1px);
+  transform: scale(1.05);
+}
+
+.menu a:hover::after,
+.menu a:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .btn {
@@ -175,6 +174,10 @@ header {
   background: linear-gradient(130deg, var(--green), #00381f);
   color: #fff;
   box-shadow: 0 12px 26px rgba(0, 74, 44, 0.2);
+}
+
+.btn-pulse {
+  animation: cta-pulse 2.8s ease-in-out infinite;
 }
 
 .btn-main:hover {
@@ -272,9 +275,17 @@ h1 {
 .logo-panel {
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: linear-gradient(160deg, #ffffff, #f4f8ff);
+  background: transparent;
   padding: 1.2rem;
   margin-bottom: 0.85rem;
+}
+
+.panel-logo {
+  height: 73px;
+  width: auto;
+  margin-bottom: 0.55rem;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .mini-title {
@@ -335,6 +346,44 @@ main section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+}
+
+.service-topics {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.service-topic {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.78rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.05rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-topic svg {
+  width: 22px;
+  height: 22px;
+  margin-top: 0.12rem;
+  flex: 0 0 22px;
+  fill: var(--green);
+}
+
+.service-topic h3 {
+  font-family: "Sora", sans-serif;
+  font-size: 1.02rem;
+  color: var(--green);
+  margin-bottom: 0.25rem;
+}
+
+.service-topic p {
+  font-size: 0.94rem;
+  color: var(--text-soft);
 }
 
 .card {
@@ -486,10 +535,26 @@ main section {
 footer {
   margin-top: 2rem;
   border-top: 1px solid var(--line);
-  background: #f8fbff;
+  background: transparent;
   padding: 1.4rem 0 2rem;
   color: var(--text-soft);
   font-size: 0.92rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.footer-content {
+  max-width: 900px;
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+}
+
+.footer-logo {
+  height: 81px;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .reveal {
@@ -505,36 +570,37 @@ footer {
 
 .whatsapp-float {
   position: fixed;
-  left: 1rem;
-  bottom: 1rem;
+  right: 20px;
+  bottom: 20px;
   z-index: 80;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: center;
   text-decoration: none;
-  padding: 0.68rem 0.88rem;
-  border-radius: 999px;
+  width: 62px;
+  height: 62px;
+  padding: 0;
+  border-radius: 50%;
   color: #fff;
   background: linear-gradient(135deg, #1fa855, #128c46);
-  box-shadow: 0 12px 24px rgba(18, 140, 70, 0.24);
+  box-shadow: 0 16px 34px rgba(18, 140, 70, 0.26);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  animation: pulse-soft 2.6s ease-in-out infinite;
+  animation: whatsapp-float-soft 2.8s ease-in-out infinite;
 }
 
 .whatsapp-float:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 16px 28px rgba(18, 140, 70, 0.32);
+  box-shadow: 0 20px 38px rgba(18, 140, 70, 0.34);
 }
 
 .whatsapp-float svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
 }
 
 .whatsapp-float span {
-  font-size: 0.85rem;
-  font-weight: 600;
+  display: none;
 }
 
 @keyframes rise {
@@ -572,6 +638,32 @@ footer {
   }
 }
 
+@keyframes cta-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 12px 26px rgba(0, 74, 44, 0.2);
+  }
+
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 16px 34px rgba(0, 74, 44, 0.28);
+  }
+}
+
+@keyframes whatsapp-float-soft {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 16px 34px rgba(18, 140, 70, 0.26);
+  }
+
+  50% {
+    transform: translateY(-1px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(18, 140, 70, 0.34);
+  }
+}
+
 @media (max-width: 980px) {
   .hero-grid,
   .cards,
@@ -594,16 +686,24 @@ footer {
   }
 
   .whatsapp-float {
-    width: 48px;
-    height: 48px;
-    justify-content: center;
-    padding: 0;
+    width: 56px;
+    height: 56px;
   }
 }
 
 @media (max-width: 560px) {
   .btn {
     width: 100%;
+  }
+
+  .brand-logo {
+    height: 64px;
+  }
+
+  .navbar .btn {
+    width: auto;
+    padding-inline: 1rem;
+    white-space: nowrap;
   }
 
   .side-note {
