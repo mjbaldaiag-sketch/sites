@@ -76,6 +76,10 @@ img {
   margin-top: 0.65rem;
 }
 
+.section-head p.no-line-break {
+  white-space: nowrap;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -250,7 +254,7 @@ h1 {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   letter-spacing: -0.02em;
   line-height: 1.03;
-  max-width: 13ch;
+  max-width: 620px;
   animation: rise 0.8s ease both;
   transform-origin: left center;
 }
@@ -259,8 +263,8 @@ h1 {
   position: relative;
   z-index: 1;
   pointer-events: auto;
-  transition: all 0.3s ease;
-  will-change: transform, color;
+  transition: color 0.3s ease;
+  will-change: color;
 }
 
 .tag.hero-hover-highlight {
@@ -269,10 +273,6 @@ h1 {
 
 h1.hero-hover-highlight {
   display: inline-block;
-}
-
-.hero-hover-highlight:hover {
-  transform: scale(1.05);
 }
 
 .tag.hero-hover-highlight:hover {
@@ -307,20 +307,26 @@ h1.hero-hover-highlight:hover {
 
 .hero-list li {
   list-style: none;
-  position: relative;
-  padding-left: 1.18rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.72rem 0.82rem;
+  border-radius: 14px;
+  border: 1px solid rgba(11, 47, 115, 0.16);
+  background: linear-gradient(110deg, #ffffff 0%, rgba(11, 47, 115, 0.08) 100%);
+  box-shadow: 0 8px 18px rgba(11, 47, 115, 0.07);
   line-height: 1.6;
 }
 
-.hero-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.67rem;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--green);
+.hero-list li svg {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.22rem;
+}
+
+.hero-list li span {
+  font-size: 0.93rem;
 }
 
 .hero-side {
@@ -343,7 +349,7 @@ h1.hero-hover-highlight:hover {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 8px;
   border: 1px solid #d6e0f1;
   border-radius: 14px;
   background: linear-gradient(135deg, #ffffff 0%, rgba(0, 51, 102, 0.05) 100%);
@@ -413,7 +419,8 @@ main section {
 .service-topics {
   list-style: none;
   display: grid;
-  gap: 0.8rem;
+  grid-template-columns: 1fr;
+  gap: 20px;
   margin-top: 0.25rem;
 }
 
@@ -424,9 +431,14 @@ main section {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 1rem 1.05rem;
+  padding: 1rem 1.1rem;
+  margin: 0;
   box-shadow: var(--shadow-sm);
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+.service-topic:last-child {
+  margin-bottom: 0;
 }
 
 .service-topic:hover {
@@ -675,6 +687,7 @@ footer {
   color: #6a7280;
   line-height: 1.5;
   text-align: center;
+  white-space: nowrap;
 }
 
 .footer-logo {
